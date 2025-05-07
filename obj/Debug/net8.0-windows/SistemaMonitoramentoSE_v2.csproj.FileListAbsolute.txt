@@ -49,3 +49,4 @@ C:\Users\gusta\source\repos\SistemaMonitoramentoSE_v2\SistemaMonitoramentoSE_v2\
 C:\Users\gusta\source\repos\SistemaMonitoramentoSE_v2\SistemaMonitoramentoSE_v2\bin\Debug\net8.0-windows\CommunityToolkit.Mvvm.dll
 C:\Users\gusta\source\repos\SistemaMonitoramentoSE_v2\SistemaMonitoramentoSE_v2\obj\Debug\net8.0-windows\SistemaMonitoramentoSE_v2.FaseB.resources
 C:\Users\gusta\source\repos\SistemaMonitoramentoSE_v2\SistemaMonitoramentoSE_v2\obj\Debug\net8.0-windows\SistemaMonitoramentoSE_v2.FaseC.resources
+C:\Users\gusta\source\repos\SistemaMonitoramentoSE_v2\SistemaMonitoramentoSE_v2\obj\Debug\net8.0-windows\SistemaMonitoramentoSE_v2.sourcelink.json

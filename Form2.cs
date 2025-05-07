@@ -147,8 +147,8 @@ namespace SistemaMonitoramentoSE_v2
 
                     var model = view_models_corrente[id_MU];
 
-                    lock (buffer)
-                    {
+                    //lock (buffer)
+                    //{
                         if (buffer.Count > 0)
                         {
                             if (model.ultima_att < M1DataHandler.timestampA)
@@ -169,7 +169,7 @@ namespace SistemaMonitoramentoSE_v2
 
                             }
                         }
-                    }
+                    //}
                 }
             }
         }
@@ -191,8 +191,8 @@ namespace SistemaMonitoramentoSE_v2
 
                     var model = view_models_tensao[id_MU];
 
-                    lock (buffer)
-                    {
+                    //lock (buffer)
+                    //{
                         if (buffer.Count > 0)
                         {
                             if (model.ultima_att < M1DataHandler.timestampA)
@@ -212,7 +212,7 @@ namespace SistemaMonitoramentoSE_v2
 
                             }
                         }
-                    }
+                    //}
                 }
             }            
         }

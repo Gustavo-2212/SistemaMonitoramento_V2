@@ -12,24 +12,26 @@ namespace SistemaMonitoramentoSE_v2
 
             Control.CheckForIllegalCrossThreadCalls = false;
 
-            Task.Run(() =>
-            {
+            //Task.Run(() =>
+            //{
+            var faseA = new FaseA();
+            faseA.Show();
+            //  Application.Run(faseA);
+            //});
 
-                var faseA = new FaseA();
-                Application.Run(faseA);
-            });
+            //Task.Run(() =>
+            //{
+            var faseB = new FaseB();
+            faseB.Show();
+            //  Application.Run(faseB);
+            //});
 
-            Task.Run(() =>
-            {
-                var faseB = new FaseB();
-                Application.Run(faseB);
-            });
-
-            Task.Run(() =>
-            {
-                var faseC = new FaseC();
-                Application.Run(faseC);
-            });
+            //Task.Run(() =>
+            //{
+            var faseC = new FaseC();
+            faseC.Show();
+            //    Application.Run(faseC);
+            //});
 
             SwitchConnection connection = new SwitchConnection(12345, faseA, faseB, faseC);
             connection.Start();
@@ -83,6 +85,7 @@ namespace SistemaMonitoramentoSE_v2
 
                 foreach (ListViewItem i in eventos_m4.Items)
                 {
+                    var x = i;
                     i.BackColor = Color.FromArgb(40, 40, 40);
                     i.ForeColor = Color.White;
                 }

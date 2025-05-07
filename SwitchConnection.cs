@@ -21,7 +21,7 @@ namespace SistemaMonitoramentoSE_v2
 
         private readonly Dictionary<string, IMessageHandler> handlers = new();
 
-        public SwitchConnection(int port, FaseA formA, Form formB, Form formC)
+        public SwitchConnection(int port, FaseA formA, FaseB formB, FaseC formC)
         {
             udp_client = new UdpClient(new IPEndPoint(IPAddress.Any, port));
             this.formA = formA;
@@ -59,7 +59,7 @@ namespace SistemaMonitoramentoSE_v2
                     string raw = Encoding.UTF8.GetString(result.Buffer);
 
                     JObject json = JObject.Parse(raw);
-                    string? uri = json["URI"]?.ToString();
+                    string? uri = json.TryGetValue("URI", out var j) ? j?.ToString() : (json["object"]?.ToString() + "/" + json["resource"]?.ToString());
 
                     if (uri != null && handlers.TryGetValue(uri, out var handler))
                         handler.Handle(json);
@@ -240,7 +240,7 @@ namespace SistemaMonitoramentoSE_v2
                 var count_total = Convert.ToInt32(json["hit_count_total"]?.ToString());
                 var count_ultimo_report = Convert.ToInt32(json["hit_count_since_last_report"]?.ToString());
                 var todas_ieds = (json["todas_IEDs"]?.ToString() == "True") ? true : false;
-                var ied_selecionada = (json["IED_selecionada"]?.ToString() == "None") ? -1 : Convert.ToInt32(json["IED_selecionada"]?.ToString());
+                var ied_selecionada = json.TryGetValue("IED_selecionada", out var i) ? -1 : Convert.ToInt32(i?.ToString());
 
                 filtros[regra] = new FiltroObj(ied_selecionada, todas_ieds, count_total, count_ultimo_report);
             }
